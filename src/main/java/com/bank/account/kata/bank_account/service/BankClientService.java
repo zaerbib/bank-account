@@ -56,6 +56,10 @@ public class BankClientService {
         return getAccountOrThrow(clientId, accountId);
     }
 
+    public BankClient getClient(String clientId) {
+        return getClientOrThrow(clientId);
+    }
+
     private BankClient getClientOrThrow(String clientId) {
         return clients.computeIfAbsent(clientId, id -> {
             throw new ClientNotFoundException("Client not found: "+id);

@@ -73,7 +73,7 @@ public class Account {
         this.transactions.add(
                 new Transaction(
                         LocalDateTime.now(),
-                        TransactionType.DEPOSIT,
+                        TransactionType.WITHDRAWAL,
                         amount,
                         this.balance));
         this.lastUpdateDate = this.transactions.get(this.transactions.size() - 1).getDate();
