@@ -69,7 +69,7 @@ public class Account {
             throw new IllegalStateException("Inufficient funds");
         }
 
-        this.balance = this.balance.add(amount);
+        this.balance = this.balance.subtract(amount);
         this.transactions.add(
                 new Transaction(
                         LocalDateTime.now(),

@@ -9,6 +9,6 @@ import java.time.LocalDateTime;
 public class Transaction {
     private final LocalDateTime date;
     private final TransactionType type;
-    private final BigDecimal ammount;
+    private final BigDecimal amount;
     private final BigDecimal balance;;
 }
