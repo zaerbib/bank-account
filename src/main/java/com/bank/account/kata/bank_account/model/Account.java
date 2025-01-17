@@ -7,22 +7,22 @@ import java.util.Collections;
 import java.util.List;
 
 public class Account {
-    private final String clientId;
+    private final String accountId;
     private BigDecimal balance;
     private final List<Transaction> transactions;
     private LocalDateTime createdDate;
     private LocalDateTime lastUpdateDate;
 
-    public Account(String clientId) {
-        this.clientId = clientId;
+    public Account(String accountId) {
+        this.accountId = accountId;
         this.balance = BigDecimal.ZERO;
         this.transactions = new ArrayList<>();
         this.createdDate = LocalDateTime.now();
         this.lastUpdateDate = LocalDateTime.now();
     }
 
-    public String getClientId() {
-        return this.clientId;
+    public String getAccountId() {
+        return this.accountId;
     }
 
     public BigDecimal getBalance() {
