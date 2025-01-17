@@ -144,7 +144,7 @@ Error Response Format:
 
 1. Clone the repository
 ```bash
-git clone https://github.com/yourusername/bank-account-api.git
+git clone https://github.com/zaerbib/bank-account.git
 ```
 
 2. Build the project
