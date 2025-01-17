@@ -2,6 +2,7 @@ package com.bank.account.kata.bank_account.service;
 
 import com.bank.account.kata.bank_account.exception.AccountAlreadyExistException;
 import com.bank.account.kata.bank_account.exception.AccountNotFoundException;
+import com.bank.account.kata.bank_account.exception.ClientAlreadyExistException;
 import com.bank.account.kata.bank_account.exception.ClientNotFoundException;
 import com.bank.account.kata.bank_account.model.Account;
 import com.bank.account.kata.bank_account.model.BankClient;
@@ -16,6 +17,10 @@ public class BankClientService {
     private final Map<String, BankClient> clients = new ConcurrentHashMap<>();
 
     public BankClient createClient(String clientId) {
+        if(clients.get(clientId) != null) {
+            throw new ClientAlreadyExistException("Client Already exist: "+clientId);
+        }
+
         BankClient client = new BankClient(clientId);
         clients.put(clientId, client);
         return client;
@@ -45,6 +50,10 @@ public class BankClientService {
         BankClient client = getClientOrThrow(clientId);
         Account account = getAccountOrThrow(clientId, accountId);
         account.withdraw(amount);
+    }
+
+    public Account getAccount(String clientId, String accountId) {
+        return getAccountOrThrow(clientId, accountId);
     }
 
     private BankClient getClientOrThrow(String clientId) {
